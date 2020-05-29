@@ -1,0 +1,111 @@
+<!-- <div class="container contact-form">
+  <div class="contact-image">
+    <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact" />
+    <h1>CREATE NEW JOB</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <button type="button" class="btn btn-success">
+        <a routerLink="/createjob"><i class="fas fa-plus-square"></i></a>
+      </button>
+    </div>
+  </div>
+  <div>
+    <table class="table table-striped css-serial">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Code</th>
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">TotalCustomer</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of job | paginate:{itemsPerPage: 5 ,currentPage:p}; let i = index">
+          
+          <td scope="row"></td>
+          <td>{{item.job_code}}</td>
+          <td>{{item.job_name}}</td>
+          <td>{{item.job_description}}</td>
+          <td>{{item.totalCustomer}}</td>
+          <td>
+            <div class="row">
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary ">
+                  <a routerLink="/jobdetail/{{item.job_id}}">
+                    <i class="fas fa-edit"></i>
+                  </a>
+                </button>
+                <button type="submit" class="btn btn-danger " (click)="deleteJob(item.job_id)" >
+                  <i class="fas fa-trash-alt"></i>  
+                </button>
+              </div>
+            </div>
+          </td>
+        </tr>      
+      </tbody>
+    </table>   
+    <div class="row">
+      <div class="col-md-4 mt-5 pagination">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>    
+    </div> 
+  </div>  
+</div> -->
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <mat-form-field class="employee-search-field">
+        <mat-label>Search</mat-label>
+        <input (keyup)="apllyFilter($event.target.value)" matInput>
+      </mat-form-field>
+
+      <mat-table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+        <ng-container matColumnDef="job_code">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Code</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.job_code}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="job_name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.job_name}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="job_description">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Description</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.job_description}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="totalCustomer">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Total</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.totalCustomer}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="job_id">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Actions</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <a routerLink="/jobdetail/{{element.job_id}}">
+              <button mat-button color="primary">
+                <mat-icon>login</mat-icon>
+              </button>
+            </a>
+            <button mat-button color="warn" (click)="deleteJob(element.job_id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+      </mat-table>
+      <mat-paginator [pageSizeOptions]="[10,20,50]" showFirstLastButtons></mat-paginator>
+
+    </div>
+  </div>
+</div>

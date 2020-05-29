@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+
+*{
+    font-family: 'Roboto', sans-serif;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.elementToFadeInAndOut {
+    -webkit-animation: fadeinout 2s linear forwards;
+    animation: fadeinout 2s linear forwards;
+    opacity: 0;
+}
+
+
+
+.thead div.tr div.td:last-child{
+    background-color: #fff;
+}
+i:hover{
+	cursor: pointer;
+}
+
+input.ng-invalid.ng-touched,select.ng-invalid.ng-touched{
+    border :  2px solid  #dc3545;
+	/* border-color: #dc3545; */
+}
+
+
+body{
+    background: #2a5ee2;  
+    background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); 
+    background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); 
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

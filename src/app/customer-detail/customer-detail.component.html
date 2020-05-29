@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="parent" *ngIf="customer">
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img *ngIf="customer.imgUrl" src="{{customer.imgUrl}}" height="100" width="100">
+          <div class="img-box" *ngIf="customer.imgUrl == null">
+            <img [src]="customer.imgUrl" height="100" width="100">
+          </div>         
+          <div class="container">
+            <h2 hidden>{{customer.customer_id}}</h2>
+            <p class="title">{{customer.last_name}}</p>
+            <p>{{customer.address}}</p>            
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-secondary mt-3" [disabled]="">
+      <a routerLink="/customerdetail/{{customer.customer_id}}/edit">Edit</a>
+    </button>
+    <button class="btn btn-danger" title="Delete Customer" (click)="deleteCustomer(customer.customer_id)">Delete</button>
+  </div>
+</div>
+
+
+
+
+
+
+

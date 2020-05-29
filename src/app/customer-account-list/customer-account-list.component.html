@@ -1,0 +1,38 @@
+
+
+<div class="container">
+  <div class="row parent">
+    <div class="col-md-3 card-items"
+      *ngFor="let item of customer">
+      <h4 class="py-lg-4 pb-4 text-center"></h4>
+      <div class="card card-cascade narrower mb-4" style="margin-top: 58px">
+        <div class="view view-cascade">
+          <img *ngIf="item.imgUrl" src="{{item.imgUrl}}" height="232" width="254">
+          <img *ngIf="item.imgUrl === null" src="./../../assets//img/unnamed.jpg" height="232" width="254">
+        </div>
+        <hr>
+        <div class="card-body card-body-cascade">          
+          <h5 class="title"> {{item.last_name}} {{item.first_name }}</h5>
+          <p class="pink-text"><i class="fas fa-venus-mars"> {{item.gender| lowercase}} </i></p>
+          <p><i class="fas fa-home"> {{item.city}} </i></p>
+          <p><i class="fas fa-envelope"> {{item.email}}</i></p>
+          <p><i class="fas fa-address-card"></i> {{item.address}}</p>
+          <p><i class="fas fa-phone"></i> {{item.phone_number}}</p>
+        </div>
+        <div class="d-flex justify-content-center">
+          <button type="button" class="btn btn-primary editBtn">
+            <a routerLink="/customerdetail/{{item.customer_id}}">Contact</a>
+          </button>
+          <button type="button" class="btn btn-danger delBtn" (click)="deleteCustomer(item.customer_id)">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>  
+  <footer>
+    <!-- <div class="col-md-4 mt-5 pagination">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>    -->
+  </footer>
+</div>

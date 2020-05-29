@@ -1,0 +1,36 @@
+<div class="container contact-form">
+  <div class="contact-image">
+    <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact" />
+    <h1>Edit Your Job</h1>
+  </div>
+  <form [formGroup]="jobForm" (ngSubmit)="onFormSubmit()">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Code" formControlName="job_code" />
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Name" formControlName="job_name" />
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Description" formControlName="job_description" />
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center mt-5">
+      <button type="submit" class="btn btn-primary mt-3" [disabled]="jobForm.invalid">
+        Submit
+      </button>
+      <div>
+        <button type="button" class="btn btn-danger mt-3 cancelBtn" (click)="cancel()">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+<!-- <button type="submit" class="btn btn-primary" (click)="successfully()">test</button> -->
+<pre>{{jobForm.value | json}}</pre>

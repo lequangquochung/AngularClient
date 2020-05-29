@@ -1,0 +1,23 @@
+
+body{
+    background: -webkit-linear-gradient(left, #0072ff, #00c6ff);
+}
+a{
+    text-decoration: none;
+    
+}
+table {
+  
+    width: 80%;
+}
+
+/* Custom */
+.container {
+    margin-top: 30px;
+}
+.employee-search-field, mat-label{
+    color: black;
+}
+
+
+
